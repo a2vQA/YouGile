@@ -21,7 +21,7 @@ public class TeamAuthorizationTests extends BaseTest {
 
     @Test
     @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("241588")
+    @TmsLink("HOMEWORK-1131")
     @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'DesktopApp' с футера")
     void checkForTeamAuthorizationWindowWithDesktopAppBtnInFooter() {
@@ -34,7 +34,7 @@ public class TeamAuthorizationTests extends BaseTest {
 
     @Test
     @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("241588")
+    @TmsLink("HOMEWORK-1131")
     @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'Скачать приложение' с футера")
     void checkForTeamAuthorizationWindowWithInformationDownloadInFooter() {
@@ -47,7 +47,7 @@ public class TeamAuthorizationTests extends BaseTest {
 
     @Test
     @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("241588")
+    @TmsLink("HOMEWORK-1131")
     @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'DesktopApp' с середины главной страницы")
     void checkForTeamAuthorizationWindowWithMiddlePageDesktopAppBtn() {
