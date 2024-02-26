@@ -20,7 +20,7 @@ public class ContactsTests extends BaseTest {
 
     @Test
     @Tags({@Tag("About"), @Tag("smoke")})
-    @TmsLink("1131")
+    @TmsLink("HOMEWORK-1131")
     @Owner("vvartemenko")
     @DisplayName("Проверить отображение информации в Росреестре на странице 'О нас'")
     void checkRusRegistryInfoTest() {
@@ -35,7 +35,7 @@ public class ContactsTests extends BaseTest {
 
     @Test
     @Tags({@Tag("About"), @Tag("smoke")})
-    @TmsLink("1131")
+    @TmsLink("HOMEWORK-1131")
     @Owner("vvartemenko")
     @DisplayName("Проверить отображение электронных почт отделов продаж, бухгалтерии, поддержки в футере")
     void checkContactEmailsInFooterTest() {
