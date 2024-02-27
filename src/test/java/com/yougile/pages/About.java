@@ -38,7 +38,7 @@ public class About {
         return this;
     }
 
-    @Step("Секция реестра имеет верный ОГРН")
+    @Step("Секция реестра имеет верный ИНН")
     public About checkInn(){
         registrySection.shouldBe(visible);
         inn.shouldHave(text("7725393915"));
@@ -46,7 +46,7 @@ public class About {
         return this;
     }
 
-    @Step("Секция реестра имеет верный ОГРН")
+    @Step("Секция реестра имеет верный КПП")
     public About checkKpp(){
         registrySection.shouldBe(visible);
         kpp.shouldHave(text("773601001"));
@@ -54,7 +54,7 @@ public class About {
         return this;
     }
 
-    @Step("Секция реестра имеет верный ОГРН")
+    @Step("Секция реестра имеет верный почтовый адрес")
     public About checkEmail(){
         registrySection.shouldBe(visible);
         email.shouldHave(text("op@yougile.com"));
