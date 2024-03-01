@@ -17,7 +17,7 @@ public class MainPage {
 
     @Step("Открыть главную страницу")
     public <T> T openMainPage(Class<T> page) {
-        open();
+        open("");
 
         content.shouldBe(visible);
 
