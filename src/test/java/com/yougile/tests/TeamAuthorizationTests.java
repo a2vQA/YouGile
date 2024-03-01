@@ -1,7 +1,7 @@
 package com.yougile.tests;
 
 import com.yougile.pages.MainPage;
-import com.yougile.pages.TeamAuthorization;
+import com.yougile.pages.TeamAuthorizationPage;
 import com.yougile.pages.components.Footer;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -28,7 +28,7 @@ public class TeamAuthorizationTests extends BaseTest {
         mainPage
                 .openMainPage(Footer.class)
                 .clickDesktopApp()
-                .clickWebStartBtn(TeamAuthorization.class)
+                .clickWebStartBtn(TeamAuthorizationPage.class)
                 .checkForTeamLoginWindow();
     }
 
@@ -41,7 +41,7 @@ public class TeamAuthorizationTests extends BaseTest {
         mainPage
                 .openMainPage(Footer.class)
                 .clickDownloadApp()
-                .clickWebStartBtn(TeamAuthorization.class)
+                .clickWebStartBtn(TeamAuthorizationPage.class)
                 .checkForTeamLoginWindow();
     }
 
@@ -54,7 +54,7 @@ public class TeamAuthorizationTests extends BaseTest {
         mainPage
                 .openMainPage(MainPage.class)
                 .clickDesktopApp()
-                .clickWebStartBtn(TeamAuthorization.class)
+                .clickWebStartBtn(TeamAuthorizationPage.class)
                 .checkForTeamLoginWindow();
     }
 }

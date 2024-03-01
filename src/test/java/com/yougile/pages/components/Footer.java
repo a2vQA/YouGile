@@ -1,7 +1,7 @@
 package com.yougile.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
-import com.yougile.pages.Download;
+import com.yougile.pages.DownloadPage;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -19,19 +19,19 @@ public class Footer {
             supportEmail = $x("//p[text()='Поддержка:']/following-sibling::ul/li/a[text()='support@yougile.com']");
 
     @Step("Нажать на 'Desktop app' в футере")
-    public Download clickDesktopApp() {
+    public DownloadPage clickDesktopApp() {
         footer.shouldBe(visible);
         desktopApp.shouldBe(visible).scrollIntoView(true).click();
 
-        return page(Download.class);
+        return page(DownloadPage.class);
     }
 
     @Step("Нажать на 'Скачать приложение' в футере")
-    public Download clickDownloadApp() {
+    public DownloadPage clickDownloadApp() {
         footer.shouldBe(visible);
         downloadApp.shouldBe(visible).scrollIntoView(true).click();
 
-        return page(Download.class);
+        return page(DownloadPage.class);
     }
 
     @Step("Проверить наличие электронных почт отделов в футере")

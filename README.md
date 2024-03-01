@@ -81,7 +81,7 @@ clean smoke -Dbrowser=${BROWSER} -DbrowserVersion=${BROWSER_VERSION} -DbrowserSi
 </p>
 
 <a id="allureTestOps"></a>
-## <img width="3%" style="vertical-align:middle" title="Allure TestOps" src="https://plugins.jetbrains.com/files/12513/451639/icon/pluginIcon.svg"> </a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/2238/dashboards"> Allure TestOps </a>
+## <img width="3%" style="vertical-align:middle" title="Allure TestOps" src="https://plugins.jetbrains.com/files/12513/451639/icon/pluginIcon.svg"> </a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4085/dashboards"> Allure TestOps </a>
 
 На *Dashboard* в ```Allure TestOps``` видна статистика количества тестов: сколько из них добавлены и проходятся вручную, сколько автоматизированы. Новые тесты, а так же результаты прогона приходят по интеграции при каждом запуске сборки.
 

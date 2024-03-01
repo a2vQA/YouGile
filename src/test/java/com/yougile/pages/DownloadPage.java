@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Download {
+public class DownloadPage {
 
     private final SelenideElement startWebVersion = $(byTagAndText("a", "Запустить"));
     @Step("Нажать кнопку 'Запустить' у Web-версии")

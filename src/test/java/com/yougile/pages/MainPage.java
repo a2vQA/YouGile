@@ -11,22 +11,23 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class MainPage {
 
-    private final SelenideElement desktopApp = $("img[alt='get-via-desktop']");
+    private final SelenideElement content = $("sections"),
+            desktopApp = $("img[alt='get-via-desktop']");
 
 
     @Step("Открыть главную страницу")
     public <T> T openMainPage(Class<T> page) {
-        open(Configuration.baseUrl);
+        open();
 
-        $("#sticky-about-content").shouldBe(visible);
+        content.shouldBe(visible);
 
         return page(page);
     }
 
     @Step("Нажать на 'Desktop app' на главной странице")
-    public Download clickDesktopApp() {
+    public DownloadPage clickDesktopApp() {
         desktopApp.shouldBe(visible).click();
 
-        return page(Download.class);
+        return page(DownloadPage.class);
     }
 }
