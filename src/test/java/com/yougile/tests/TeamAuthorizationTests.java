@@ -15,14 +15,14 @@ import org.junit.jupiter.api.Test;
 @Epic("Авторизация Team")
 @Feature("Проверка отображения окна авторизации Team")
 @DisplayName("Проверка отображения окна авторизации Team")
+@TmsLink("HOMEWORK-1131")
+@Tags({@Tag("Authorization"), @Tag("smoke")})
+@Owner("vvartemenko")
 public class TeamAuthorizationTests extends BaseTest {
 
     private final MainPage mainPage = new MainPage();
 
     @Test
-    @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("HOMEWORK-1131")
-    @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'DesktopApp' с футера")
     void checkForTeamAuthorizationWindowWithDesktopAppBtnInFooter() {
         mainPage
@@ -33,9 +33,6 @@ public class TeamAuthorizationTests extends BaseTest {
     }
 
     @Test
-    @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("HOMEWORK-1131")
-    @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'Скачать приложение' с футера")
     void checkForTeamAuthorizationWindowWithInformationDownloadInFooter() {
         mainPage
@@ -46,9 +43,6 @@ public class TeamAuthorizationTests extends BaseTest {
     }
 
     @Test
-    @Tags({@Tag("Authorization"), @Tag("smoke")})
-    @TmsLink("HOMEWORK-1131")
-    @Owner("vvartemenko")
     @DisplayName("Отображение окна авторизации Team при переходе по кнопке 'DesktopApp' с середины главной страницы")
     void checkForTeamAuthorizationWindowWithMiddlePageDesktopAppBtn() {
         mainPage

@@ -36,7 +36,10 @@ public class PricePage {
 
     @Step("Получить цену из Коробочная версия под слайдером")
     public String getSliderBoxPrice() {
-        return boxSliderPrice.shouldBe(visible).scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}").getText();
+        $("[class='row s-price__calc-cols']")
+                .scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+
+        return boxSliderPrice.shouldBe(visible).getText();
     }
 
     @Step("Получить цену из Коробочная версия под слайдером")

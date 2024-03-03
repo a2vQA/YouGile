@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import com.yougile.pages.DownloadPage;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -12,7 +14,8 @@ import static com.codeborne.selenide.Selenide.page;
 public class Footer {
 
     private final SelenideElement footer = $("footer"),
-            desktopApp = $("footer div[class~='d-flex'] a img[src='/svg/get-via-desktop.svg']"),
+            desktopAppBig = $("footer div[class~='d-xl-flex'] [href='/download']"),
+            desktopAppSmall = $("footer div[class~='d-xl-none'] [href='/download']"),
             downloadApp = $("a[href='/download'][class='text-decoration-none']"),
             salesEmail = $x("//p[text()='Отдел продаж:']/following-sibling::ul/li/a[text()='op@yougile.com']"),
             accountingEmail = $x("//p[text()='Бухгалтерия:']/following-sibling::ul/li/a[text()='buh@yougile.com']"),
@@ -20,16 +23,20 @@ public class Footer {
 
     @Step("Нажать на 'Desktop app' в футере")
     public DownloadPage clickDesktopApp() {
-        footer.shouldBe(visible);
-        desktopApp.shouldBe(visible).scrollIntoView(true).click();
+        footer.shouldBe(visible).scrollIntoView(true);
+        if (desktopAppBig.isDisplayed()) {
+            desktopAppBig.click();
+        } else {
+            desktopAppSmall.click();
+        }
 
         return page(DownloadPage.class);
     }
 
     @Step("Нажать на 'Скачать приложение' в футере")
     public DownloadPage clickDownloadApp() {
-        footer.shouldBe(visible);
-        downloadApp.shouldBe(visible).scrollIntoView(true).click();
+        footer.scrollIntoView(true).shouldBe(visible);
+        downloadApp.shouldBe(visible).click();
 
         return page(DownloadPage.class);
     }
