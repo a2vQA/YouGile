@@ -27,7 +27,7 @@ public class AboutPage {
 
     @Step("Секция информации о компании имеет данные {0}")
     public AboutPage checkDataInInfoBlock(String value){
-        registrySection.shouldBe(visible);
+        registrySection.shouldBe(visible).scrollIntoView(true);
         companyInfoBlock.shouldHave(text(value));
 
         return this;

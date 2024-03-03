@@ -19,6 +19,7 @@ public class BaseTest {
 
     @BeforeAll
     static void browserSettings() {
+        System.setProperty("env", System.getProperty("env", "local"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
         Configuration.baseUrl = "https://ru.yougile.com";
@@ -26,15 +27,17 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", driverConfig.browserName());
         Configuration.browserVersion = System.getProperty("browserVersion", driverConfig.browserVersion());
         Configuration.browserSize = System.getProperty("browserSize", driverConfig.browserSize());
-        Configuration.remote = System.getProperty("browserRemoteUrl", driverConfig.browserRemoteUrl());
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        if (driverConfig.isRemote()) {
+            Configuration.remote = System.getProperty("browserRemoteUrl", driverConfig.browserRemoteUrl());
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
 
-        Configuration.browserCapabilities = capabilities;
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 
     @BeforeEach
@@ -49,7 +52,9 @@ public class BaseTest {
         if (!Objects.equals(Configuration.browser, "firefox")) {
             Attach.browserConsoleLogs();
         }
-        Attach.addVideo();
+        if (Configuration.remote != null) {
+            Attach.addVideo();
+        }
         Selenide.closeWebDriver();
     }
 }
