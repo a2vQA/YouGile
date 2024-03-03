@@ -1,6 +1,6 @@
 package com.yougile.tests;
 
-import com.yougile.pages.About;
+import com.yougile.pages.AboutPage;
 import com.yougile.pages.components.Footer;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,32 +14,29 @@ import org.junit.jupiter.api.Test;
 @Epic("О нас")
 @Feature("Проверка отображения данных на странице 'О нас'")
 @DisplayName("Проверка отображения данных на странице 'О нас'")
+@TmsLink("HOMEWORK-1131")
+@Tags({@Tag("About"), @Tag("smoke")})
+@Owner("vvartemenko")
 public class ContactsTests extends BaseTest {
 
-    private final About about = new About();
+    private final AboutPage aboutPage = new AboutPage();
 
     @Test
-    @Tags({@Tag("About"), @Tag("smoke")})
-    @TmsLink("HOMEWORK-1131")
-    @Owner("vvartemenko")
     @DisplayName("Проверить отображение информации в Росреестре на странице 'О нас'")
     void checkRusRegistryInfoTest() {
-        about
-                .openContactPage(About.class)
-                .checkOgrn()
-                .checkInn()
-                .checkKpp()
-                .checkEmail()
-                .checkAddress();
+        aboutPage
+                .openContactPage(AboutPage.class)
+                .checkDataInInfoBlock("1177746958311")
+                .checkDataInInfoBlock("7725393915")
+                .checkDataInInfoBlock("773601001")
+                .checkDataInInfoBlock("op@yougile.com")
+                .checkDataInInfoBlock("119331, город Москва, пр-кт Вернадского, д. 29, этаж 5 ком./офис 20/б3т");
     }
 
     @Test
-    @Tags({@Tag("About"), @Tag("smoke")})
-    @TmsLink("HOMEWORK-1131")
-    @Owner("vvartemenko")
     @DisplayName("Проверить отображение электронных почт отделов продаж, бухгалтерии, поддержки в футере")
     void checkContactEmailsInFooterTest() {
-        about
+        aboutPage
                 .openContactPage(Footer.class)
                 .checkEmails();
     }
