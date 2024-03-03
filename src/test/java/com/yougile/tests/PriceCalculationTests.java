@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -71,15 +71,13 @@ public class PriceCalculationTests extends BaseTest {
         String paybackDaysAfter = pricePage
                 .getPaybackDays();
 
-        step("Проверка изменения сумм в калькуляторе после выставления новых параметров", () -> {
-            assertAll(
-                    () -> assertNotEquals(licenseAmountBefore, licenseAmountAfter,
-                            "Стоимость лицензии была " + licenseAmountBefore + ", а стала " + licenseAmountAfter),
-                    () -> assertNotEquals(profitAmountBefore, profitAmountAfter,
-                            "Стоимость лицензии была " + profitAmountBefore + ", а стала " + profitAmountAfter),
-                    () -> assertNotEquals(paybackDaysBefore, paybackDaysAfter,
-                            "Стоимость лицензии была " + paybackDaysBefore + ", а стала " + paybackDaysAfter));
-        });
+        step("Проверка изменения сумм в калькуляторе после выставления новых параметров", () -> assertAll(
+                () -> assertNotEquals(licenseAmountBefore, licenseAmountAfter,
+                        "Стоимость лицензии была " + licenseAmountBefore + ", а стала " + licenseAmountAfter),
+                () -> assertNotEquals(profitAmountBefore, profitAmountAfter,
+                        "Стоимость лицензии была " + profitAmountBefore + ", а стала " + profitAmountAfter),
+                () -> assertNotEquals(paybackDaysBefore, paybackDaysAfter,
+                        "Стоимость лицензии была " + paybackDaysBefore + ", а стала " + paybackDaysAfter)));
     }
 
     static Stream<Arguments> paybackCalculatorTest() {
